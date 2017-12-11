@@ -62,3 +62,39 @@ var addFib = function() {
 
 var button2 = document.getElementById("b2");
 b2.addEventListener( "click", addFib );
+
+var stern = function(n){
+    if (n==0){
+	return 0;
+    }
+    if (n==1){
+	return 1;
+    }
+    if (n%2 == 0){
+	return stern(n/2);
+    }
+    else{
+	var newn =((n-1)/2);
+	return (stern(newn)+stern(newn+1));
+    }
+}
+
+var Fractran = function(n){
+    return stern(n)/stern(n+1);
+}
+
+var getLenStern = function(list) {
+  return document.getElementsByClassName("stern").length;
+}
+
+var addStern = function() {
+  var list = document.getElementById("list3");
+  var li = document.createElement("li");
+  li.setAttribute("class", "stern")
+  list.appendChild(li);
+  li.innerHTML = Fractran(getLenStern(list));
+}
+
+var button3 = document.getElementById("b3");
+b3.addEventListener( "click", addStern );
+
